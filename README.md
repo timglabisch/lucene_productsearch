@@ -17,24 +17,39 @@ take a look at the Tests (ns de.tg.productsearch.Test) if you want to learn abou
 for now it's just a POC. I implemented a bunch of features:
 
 [xx] search for products and productvariants and return the products SKU
+
 [xx] return matched productvariants
+
 [xx] create product facets for productvariants (correct counting for products).
+
 [x ] update Products in realtime.
+
 [  ] examples for complex queries
+
 [  ] write a blog post about this topic
+
 [  ] support stemming
+
 [  ] support dynamic facets
+
 [  ] add example for range facets
+
 [  ] support for analyzer
+
 [  ] rest api
+
 [  ] performance tests
+
 [  ] persistent storage (right now just in memory)
+
 [  ] mongodb river
 
 
 ---
 [xx] = implemented + integrationtest
+
 [x ] = implemented
+
 [  ] = todo
 
 
