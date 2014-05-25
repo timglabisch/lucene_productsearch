@@ -1,11 +1,11 @@
-package de.sensiolabs.productsearch.Test;
+package de.tg.productsearch.Test;
 
 
-import de.sensiolabs.productsearch.Dao.Product;
-import de.sensiolabs.productsearch.Dao.ProductVariant;
-import de.sensiolabs.productsearch.ProductFacetSearch;
-import de.sensiolabs.productsearch.ProductIndex;
-import de.sensiolabs.productsearch.ProductSearch;
+import de.tg.productsearch.Dao.Product;
+import de.tg.productsearch.Dao.ProductVariant;
+import de.tg.productsearch.ProductFacetSearch;
+import de.tg.productsearch.ProductIndex;
+import de.tg.productsearch.ProductSearch;
 import org.apache.lucene.facet.FacetResult;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.MatchAllDocsQuery;
@@ -16,8 +16,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ProductFacetSearchTest {
 

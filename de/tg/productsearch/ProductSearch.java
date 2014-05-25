@@ -1,13 +1,10 @@
-package de.sensiolabs.productsearch;
+package de.tg.productsearch;
 
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-import de.sensiolabs.productsearch.Dao.ProductSearchResult;
-import de.sensiolabs.productsearch.Dao.ProductVariantSearchResult;
-import de.sensiolabs.productsearch.Dao.SearchResult;
+import de.tg.productsearch.Dao.ProductSearchResult;
+import de.tg.productsearch.Dao.ProductVariantSearchResult;
+import de.tg.productsearch.Dao.SearchResult;
 import org.apache.lucene.document.Document;
-import org.apache.lucene.index.DirectoryReader;
-import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.queries.TermFilter;
 import org.apache.lucene.search.*;

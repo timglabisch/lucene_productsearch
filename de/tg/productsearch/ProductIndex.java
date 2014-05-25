@@ -1,8 +1,8 @@
-package de.sensiolabs.productsearch;
+package de.tg.productsearch;
 
 
-import de.sensiolabs.productsearch.Dao.Product;
-import de.sensiolabs.productsearch.Dao.ProductVariant;
+import de.tg.productsearch.Dao.Product;
+import de.tg.productsearch.Dao.ProductVariant;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;

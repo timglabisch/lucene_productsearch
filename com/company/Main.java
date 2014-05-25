@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        de.sensiolabs.productsearch.Main m = new de.sensiolabs.productsearch.Main();
+        de.tg.productsearch.Main m = new de.tg.productsearch.Main();
         m.run();
 
     }

@@ -1,14 +1,13 @@
-package de.sensiolabs.productsearch.Test;
+package de.tg.productsearch.Test;
 
 
-import de.sensiolabs.productsearch.Dao.Product;
-import de.sensiolabs.productsearch.Dao.ProductVariant;
-import de.sensiolabs.productsearch.Dao.ProductVariantSearchResult;
-import de.sensiolabs.productsearch.Dao.SearchResult;
-import de.sensiolabs.productsearch.ProductFacetSearch;
-import de.sensiolabs.productsearch.ProductIndex;
-import de.sensiolabs.productsearch.ProductSearch;
-import org.apache.lucene.facet.FacetResult;
+import de.tg.productsearch.Dao.Product;
+import de.tg.productsearch.Dao.ProductVariant;
+import de.tg.productsearch.Dao.ProductVariantSearchResult;
+import de.tg.productsearch.Dao.SearchResult;
+import de.tg.productsearch.ProductFacetSearch;
+import de.tg.productsearch.ProductIndex;
+import de.tg.productsearch.ProductSearch;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.*;
 import org.junit.Assert;
@@ -77,6 +76,57 @@ public class ProductSearchTest {
         Assert.assertEquals(matchedVariants2.get(0).getSku(), "2_1");
         Assert.assertEquals(matchedVariants2.get(1).getSku(), "2_2");
 
+    }
+
+    @Test
+    public void testQueryProduct() throws Exception
+    {
+        this.productIndex.save(
+                new Product("product_one", "ProductOne", new ProductVariant[] {
+                        new ProductVariant("1_1","s","",1),
+                        new ProductVariant("1_2", "s", "", 1),
+                        new ProductVariant("1_3", "m", "", 1)
+                })
+        );
+
+        this.productIndex.save(
+                new Product("product_two", "product_two_name", new ProductVariant[] {
+                        new ProductVariant("2_1","xl","", 1),
+                        new ProductVariant("2_2", "s", "", 1),
+                })
+        );
+
+        BooleanQuery q = new BooleanQuery();
+        q.add(new TermQuery(new Term("name", "product_two_name")), BooleanClause.Occur.MUST);
+
+        SearchResult res = this.productSearch.search(q, null);
+        Assert.assertEquals(1, res.getProductSearchResults().size());
+    }
+
+    @Test
+    public void testQueryProductVariant() throws Exception
+    {
+        this.productIndex.save(
+                new Product("product_one", "ProductOne", new ProductVariant[] {
+                        new ProductVariant("1_1","s","",1),
+                        new ProductVariant("1_2", "s", "", 1),
+                        new ProductVariant("1_3", "m", "", 1)
+                })
+        );
+
+        this.productIndex.save(
+                new Product("product_two", "product_two_name", new ProductVariant[] {
+                        new ProductVariant("2_1","xl","", 1),
+                        new ProductVariant("2_2", "s", "", 1),
+                })
+        );
+
+        BooleanQuery q = new BooleanQuery();
+        q.add(new TermQuery(new Term("size", "xl")), BooleanClause.Occur.MUST);
+
+        SearchResult res = this.productSearch.search(null, q);
+        Assert.assertEquals(1, res.getProductSearchResults().size());
+        Assert.assertEquals("product_two", res.getProductSearchResults().get(0).getId());
     }
 
 }

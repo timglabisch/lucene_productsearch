@@ -1,11 +1,9 @@
-package de.sensiolabs.productsearch;
+package de.tg.productsearch;
 
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-import de.sensiolabs.productsearch.Dao.Product;
-import de.sensiolabs.productsearch.Dao.ProductVariant;
-import de.sensiolabs.productsearch.Dao.SearchResult;
-import org.apache.lucene.document.Document;
+import de.tg.productsearch.Dao.Product;
+import de.tg.productsearch.Dao.ProductVariant;
+import de.tg.productsearch.Dao.SearchResult;
 import org.apache.lucene.facet.FacetResult;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.BooleanClause;

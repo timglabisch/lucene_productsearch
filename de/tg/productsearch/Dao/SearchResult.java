@@ -1,4 +1,4 @@
-package de.sensiolabs.productsearch.Dao;
+package de.tg.productsearch.Dao;
 
 
 import java.util.ArrayList;

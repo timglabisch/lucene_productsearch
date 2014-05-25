@@ -1,10 +1,7 @@
-package de.sensiolabs.productsearch.Dao;
+package de.tg.productsearch.Dao;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 
 public class Product {
 
