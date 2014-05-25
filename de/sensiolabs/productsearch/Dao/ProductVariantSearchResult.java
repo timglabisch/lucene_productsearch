@@ -13,4 +13,7 @@ public class ProductVariantSearchResult {
         this.sale = sale;
     }
 
+    public String getSku() {
+        return sku;
+    }
 }

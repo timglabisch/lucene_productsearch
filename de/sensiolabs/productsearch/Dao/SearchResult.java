@@ -12,4 +12,9 @@ public class SearchResult {
         this.productSearchResults.add(productSearchResult);
     }
 
+    public ArrayList<ProductSearchResult> getProductSearchResults()
+    {
+        return this.productSearchResults;
+    }
+
 }

@@ -37,6 +37,19 @@ public class ProductSearch {
 
     public SearchResult search(BooleanQuery productQuery, BooleanQuery productVariantQuery) throws IOException
     {
+        if(productQuery == null) {
+            productQuery = new BooleanQuery();
+            productQuery.add(new MatchAllDocsQuery(), BooleanClause.Occur.MUST);
+        }
+
+        if(productVariantQuery == null) {
+            productVariantQuery = new BooleanQuery();
+            productVariantQuery.add(new MatchAllDocsQuery(), BooleanClause.Occur.MUST);
+        }
+
+        // todo: may use a filter?
+        productVariantQuery.add(new TermQuery(new Term("type", "productVariant".toLowerCase())), BooleanClause.Occur.MUST);
+
         Filter productParentFilter = new FixedBitSetCachingWrapperFilter(
                 new TermFilter(new Term("type", "product"))
         );
@@ -85,7 +98,7 @@ public class ProductSearch {
 
                 productVariantSearchResults.add(new ProductVariantSearchResult(
                         hitDoc.get("sku"),
-                        false // todo salse
+                        false // todo TRACK SALES
                 ));
 
                 documents.add(hitDoc);
