@@ -29,7 +29,7 @@ public class ProductFacetSearch {
     public FacetResult search(Query productQuery, String field, int size) throws IOException {
         FacetsCollector facetsCollector = new FacetsCollector();
 
-        FacetsCollector.search(this.getIndexSearcher(), new MatchAllDocsQuery(), 10, facetsCollector);
+        FacetsCollector.search(this.getIndexSearcher(), productQuery, 10, facetsCollector);
 
         Facets author = new FastTaxonomyFacetCounts(field, this.productIndex.getTaxonomyReader(), this.productIndex.getProductFacetConfiguration(), facetsCollector);
         return author.getTopChildren(size, field);

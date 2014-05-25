@@ -14,12 +14,13 @@ public class Product {
 
     protected String description = "";
 
-    protected List<ProductVariant> variants = new ArrayList<ProductVariant>();
+    protected ProductVariant[] variants;
 
-    public Product(String id, String name)
+    public Product(String id, String name, ProductVariant[] variants)
     {
         this.name = name;
         this.id = id;
+        this.variants = variants;
     }
 
     public String getId() {
@@ -34,12 +35,7 @@ public class Product {
         return description;
     }
 
-    public void addVariant(ProductVariant variant)
-    {
-        this.variants.add(variant);
-    }
-
-    public List<ProductVariant> getVariants()
+    public ProductVariant[] getVariants()
     {
         return this.variants;
     }
@@ -48,7 +44,7 @@ public class Product {
     {
         HashSet<String> buffer = new HashSet<String>();
 
-        for(ProductVariant variant : this.getVariants())
+        for(ProductVariant variant : this.variants)
         {
             if(buffer.contains(variant.getSize())) {
                 continue;
@@ -64,7 +60,7 @@ public class Product {
     {
         HashSet<String> buffer = new HashSet<String>();
 
-        for(ProductVariant variant : this.getVariants())
+        for(ProductVariant variant : this.variants)
         {
             if(buffer.contains(variant.getColor())) {
                 continue;

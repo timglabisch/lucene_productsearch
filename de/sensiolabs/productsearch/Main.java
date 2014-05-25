@@ -27,21 +27,17 @@ public class Main {
     {
         List<Product> products = new ArrayList<Product>();
 
-        {
-            Product p = new Product("1", "ProductOne");
-            p.addVariant(new ProductVariant("1_1", "s", "blue", 5));
-            p.addVariant(new ProductVariant("1_2", "s", "yellow", 5));
-            p.addVariant(new ProductVariant("1_3", "m", "yellow", 6));
-            products.add(p);
-        }
+        products.add(new Product("1", "ProductOne", new ProductVariant[] {
+            new ProductVariant("1_1", "s", "blue", 5),
+            new ProductVariant("1_2", "s", "yellow", 5),
+            new ProductVariant("1_3", "m", "yellow", 6)
+        }));
 
-        {
-            Product p = new Product("2", "ProductTwo");
-            p.addVariant(new ProductVariant("2_1", "s", "blue", 5));
-            p.addVariant(new ProductVariant("2_2", "s", "yellow", 5));
-            p.addVariant(new ProductVariant("2_3", "m", "yellow", 6));
-            products.add(p);
-        }
+        products.add(new Product("2", "ProductTwo", new ProductVariant[]{
+            new ProductVariant("2_1", "s", "blue", 5),
+            new ProductVariant("2_2", "s", "yellow", 5),
+            new ProductVariant("2_3", "m", "yellow", 6)
+        }));
 
         return products;
     }
