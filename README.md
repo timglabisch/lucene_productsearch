@@ -5,7 +5,7 @@ the main problem is that elasticsearch doesn't support lucene's ToParentBlockJoi
 
 This makes it impossible to return matched "productvariants" grouped by a "product".
 workarounds like fetching the source and find the matched variants in the application or run a subquery for every matched
-product isn't suitable.
+product may isn't suitable.
 
 this is a POC for building a productsearch with productvariants using lucene.
 
